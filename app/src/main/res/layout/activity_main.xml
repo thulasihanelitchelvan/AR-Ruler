@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- AR Fragment -->
+    <fragment
+        android:id="@+id/arFragment"
+        android:name="com.example.armeasure.MyArFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Overlay -->
+    <com.example.armeasure.MeasureOverlayView
+        android:id="@+id/measureOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent" />
+
+    <!-- Crosshair -->
+    <ImageView
+        android:id="@+id/crosshair"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_crosshair"
+        android:visibility="visible" />
+
+    <!-- Top Measurement Display -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="24dp"
+        android:background="#66000000"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/distanceText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Initializing AR..."
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/unitToggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CM"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:layout_marginStart="16dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:background="#33FFFFFF"
+            android:clickable="true"
+            android:focusable="true" />
+    </LinearLayout>
+
+    <!-- Bottom Right Buttons -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="20dp">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabUndo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="Undo"
+            android:onClick="onUndoClicked"
+            android:src="@android:drawable/ic_menu_revert" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabRetrack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Retrack"
+            android:onClick="onRetrackClicked"
+            android:src="@android:drawable/ic_menu_rotate" />
+    </LinearLayout>
+
+    <!-- Loading Overlay -->
+    <LinearLayout
+        android:id="@+id/loadingOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#AA000000"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <ProgressBar
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:indeterminate="true"
+            android:indeterminateTint="@android:color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Initializing AR..."
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+
+</FrameLayout>
