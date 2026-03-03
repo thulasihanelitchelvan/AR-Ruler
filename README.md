@@ -39,15 +39,6 @@ Built using Kotlin and ARCore without depth API support.
 
 ---
 
-## 📸 Screenshots
-
-_Add screenshots in the screenshots folder and link here._
-
-Example:
-
-
----
-
 ## ⚠ Limitations
 
 - Accuracy may vary on non-depth devices due to ARCore SLAM refinement
